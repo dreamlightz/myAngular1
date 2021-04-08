@@ -1,0 +1,15 @@
+<div style="position: relative; display: flex;">
+    <div class="sidenav" *ngIf="menuItem">
+        <p style="text-align: center;">RD Tax Filling 1.0.0</p>
+        <div class="menu-item" *ngFor="let data of btnList;" [routerLink]="[data.routerLink, {name: data.btnText}]" [queryParams]="{name: data.btnText}" [routerLinkActive]="['actived']">
+            <i class="{{data.iconClass}}"></i>
+            <span class="">{{ data?.btnText }}</span>
+            <!-- <span class="material-icons">search</span> -->
+            <!-- <span class="font-effect-fire-animation">TEST</span> -->
+        </div>
+    </div>
+    <div class="hideBtn" (click)="menuItem = !menuItem"><i class="fas fa-chevron-left" *ngIf="menuItem"></i><i class="fas fa-chevron-right" *ngIf="!menuItem"></i></div>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+</div>
